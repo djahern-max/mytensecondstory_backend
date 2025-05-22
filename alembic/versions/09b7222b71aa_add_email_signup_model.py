@@ -1,8 +1,8 @@
-"""Add email signups table
+"""Add email signup model
 
-Revision ID: 2b9eee686d37
+Revision ID: 09b7222b71aa
 Revises: 
-Create Date: 2025-05-22 08:49:03.129834
+Create Date: 2025-05-22 18:43:48.944107
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '2b9eee686d37'
+revision = '09b7222b71aa'
 down_revision = None
 branch_labels = None
 depends_on = None

@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, PlainTextResponse
 from fastapi.routing import APIRoute
 
-from app.api.routes import auth, users
+from app.api.routes import auth, users, email_signup
 from app.core.config import settings
 
 
@@ -25,14 +25,20 @@ if settings.BACKEND_CORS_ORIGINS:
 # Include routers
 app.include_router(auth.router, prefix=f"{settings.API_V1_STR}/auth", tags=["auth"])
 app.include_router(users.router, prefix=f"{settings.API_V1_STR}/users", tags=["users"])
+app.include_router(
+    email_signup.router, prefix=f"{settings.API_V1_STR}/signup", tags=["signup"]
+)
+
 
 @app.get("/")
 async def root():
     return {"message": "Welcome to MyTenSecondStory API"}
 
+
 @app.get("/health")
 async def health_check():
     return JSONResponse(content={"status": "ok"})
+
 
 @app.get("/routes-simple", response_class=PlainTextResponse)
 async def get_routes_simple():

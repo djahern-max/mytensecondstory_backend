@@ -1,12 +1,21 @@
-# Byte-compiled / optimized / DLL files
+# Environment files - CRITICAL: Never commit these
+.env
+.env.*
+!.env.example
+.env.local
+.env.production
+.env.staging
+
+# Google Cloud credentials - CRITICAL: Never commit these
+google-credentials.json
+*-credentials.json
+service-account*.json
+
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
-
-# C extensions
 *.so
-
-# Distribution / packaging
 .Python
 build/
 develop-eggs/
@@ -20,45 +29,65 @@ parts/
 sdist/
 var/
 wheels/
+pip-wheel-metadata/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
-
-# Environments
-.env
-.venv
-env/
+# Virtual environments
 venv/
+env/
 ENV/
 env.bak/
 venv.bak/
+.venv/
 
 # IDE
-.idea/
 .vscode/
+.idea/
 *.swp
 *.swo
+*~
 
-# OS specific
+# OS
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
 # Logs
-logs/
 *.log
+logs/
+log/
 
-# Local development
-docker-volumes/
+# Database
+*.db
+*.sqlite3
 
+# Temporary files
+tmp/
+temp/
+*.tmp
 
-notes.txt
+# Alembic
+alembic/versions/*.py
+!alembic/versions/.gitkeep
+
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Backup files
+*.backup
+*.bak
+
+# Local storage
+uploads/
+storage/
+media/

@@ -1,0 +1,899 @@
+{
+  "generated_at": "2025-05-30T08:56:56.082786",
+  "application_name": "MyTenSecondStory Backend",
+  "structure": {
+    "name": "app",
+    "type": "directory",
+    "children": [
+      {
+        "name": "api",
+        "type": "directory",
+        "children": [
+          {
+            "name": "dependencies.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "errors.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "routes",
+            "type": "directory",
+            "children": [
+              {
+                "name": "ai_enhancement.py",
+                "type": "file",
+                "children": []
+              },
+              {
+                "name": "auth.py",
+                "type": "file",
+                "children": []
+              },
+              {
+                "name": "mobile_upload.py",
+                "type": "file",
+                "children": []
+              },
+              {
+                "name": "payments.py",
+                "type": "file",
+                "children": []
+              },
+              {
+                "name": "users.py",
+                "type": "file",
+                "children": []
+              },
+              {
+                "name": "videos.py",
+                "type": "file",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "core",
+        "type": "directory",
+        "children": [
+          {
+            "name": "ai_config.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "config.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "constants.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "events.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "security.py",
+            "type": "file",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "db",
+        "type": "directory",
+        "children": [
+          {
+            "name": "base.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "session.py",
+            "type": "file",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "main.py",
+        "type": "file",
+        "children": []
+      },
+      {
+        "name": "models",
+        "type": "directory",
+        "children": [
+          {
+            "name": "background_template.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "enhancement_job.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "payment.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "user.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "video.py",
+            "type": "file",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "requirements.txt",
+        "type": "file",
+        "children": []
+      },
+      {
+        "name": "requirements_additions.txt",
+        "type": "file",
+        "children": []
+      },
+      {
+        "name": "schemas",
+        "type": "directory",
+        "children": [
+          {
+            "name": "enhancement.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "mobile_upload.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "payment.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "user.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "video.py",
+            "type": "file",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "services",
+        "type": "directory",
+        "children": [
+          {
+            "name": "ai_service.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "auth.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "background_enhancer.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "mobile_optimizer.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "payment.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "storage.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "video.py",
+            "type": "file",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "tasks",
+        "type": "directory",
+        "children": [
+          {
+            "name": "__init__.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "enhancement_tasks.py",
+            "type": "file",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "utils",
+        "type": "directory",
+        "children": [
+          {
+            "name": "__init__.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "ai_client.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "mobile_utils.py",
+            "type": "file",
+            "children": []
+          },
+          {
+            "name": "video_processing.py",
+            "type": "file",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "models": {
+    "user": {
+      "content": "[33 lines of code]",
+      "classes": [
+        "OAuthProvider",
+        "User"
+      ],
+      "functions": [],
+      "imports": [
+        "sqlalchemy.Boolean",
+        "sqlalchemy.Column",
+        "sqlalchemy.String",
+        "sqlalchemy.Integer",
+        "sqlalchemy.DateTime",
+        "sqlalchemy.ForeignKey",
+        "sqlalchemy.Enum",
+        "sqlalchemy.sql.func",
+        "enum",
+        "app.db.session.Base",
+        "uuid"
+      ],
+      "lines": 33
+    },
+    "enhancement_job": {
+      "content": "[326 lines of code]",
+      "classes": [
+        "JobStatus",
+        "EnhancementType",
+        "EnhancementJob"
+      ],
+      "functions": [
+        "__repr__",
+        "is_completed",
+        "is_processing",
+        "can_retry",
+        "update_progress",
+        "mark_started",
+        "mark_completed",
+        "mark_failed",
+        "mark_cancelled",
+        "increment_retry",
+        "get_estimated_completion_time",
+        "get_enhancement_summary",
+        "to_dict"
+      ],
+      "imports": [
+        "sqlalchemy.Column",
+        "sqlalchemy.String",
+        "sqlalchemy.Integer",
+        "sqlalchemy.Float",
+        "sqlalchemy.DateTime",
+        "sqlalchemy.Text",
+        "sqlalchemy.Boolean",
+        "sqlalchemy.JSON",
+        "sqlalchemy.ForeignKey",
+        "sqlalchemy.orm.relationship",
+        "sqlalchemy.ext.declarative.declarative_base",
+        "datetime.datetime",
+        "uuid",
+        "enum",
+        "app.db.base.Base",
+        "datetime.timedelta"
+      ],
+      "lines": 326
+    },
+    "background_template": {
+      "content": "[327 lines of code]",
+      "classes": [
+        "BackgroundCategory",
+        "BackgroundTemplate"
+      ],
+      "functions": [
+        "__repr__",
+        "is_available",
+        "networking_score",
+        "increment_usage",
+        "update_success_rate",
+        "add_rating",
+        "get_processing_estimate",
+        "to_dict",
+        "get_networking_templates",
+        "get_by_category",
+        "search_templates"
+      ],
+      "imports": [
+        "sqlalchemy.Column",
+        "sqlalchemy.String",
+        "sqlalchemy.Integer",
+        "sqlalchemy.Float",
+        "sqlalchemy.DateTime",
+        "sqlalchemy.Text",
+        "sqlalchemy.Boolean",
+        "sqlalchemy.JSON",
+        "sqlalchemy.ext.declarative.declarative_base",
+        "datetime.datetime",
+        "uuid",
+        "enum",
+        "app.db.base.Base"
+      ],
+      "lines": 327
+    },
+    "video": {
+      "content": "[32 lines of code]",
+      "classes": [
+        "Video"
+      ],
+      "functions": [],
+      "imports": [
+        "sqlalchemy.Column",
+        "sqlalchemy.String",
+        "sqlalchemy.Integer",
+        "sqlalchemy.Boolean",
+        "sqlalchemy.DateTime",
+        "sqlalchemy.ForeignKey",
+        "sqlalchemy.Text",
+        "sqlalchemy.sql.func",
+        "app.db.session.Base",
+        "uuid"
+      ],
+      "lines": 32
+    },
+    "payment": {
+      "content": "[28 lines of code]",
+      "classes": [
+        "PaymentStatus",
+        "Payment"
+      ],
+      "functions": [],
+      "imports": [
+        "sqlalchemy.Column",
+        "sqlalchemy.String",
+        "sqlalchemy.Integer",
+        "sqlalchemy.Float",
+        "sqlalchemy.DateTime",
+        "sqlalchemy.ForeignKey",
+        "sqlalchemy.Enum",
+        "sqlalchemy.sql.func",
+        "enum",
+        "app.db.session.Base",
+        "uuid"
+      ],
+      "lines": 28
+    }
+  },
+  "routes": {
+    "auth": {
+      "content": "[106 lines of code]",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "fastapi.APIRouter",
+        "fastapi.Depends",
+        "fastapi.HTTPException",
+        "fastapi.status",
+        "fastapi.Body",
+        "fastapi.security.OAuth2PasswordRequestForm",
+        "sqlalchemy.orm.Session",
+        "jose.jwt",
+        "jose.JWTError",
+        "pydantic.ValidationError",
+        "app.api.dependencies.get_db",
+        "app.core.config.settings",
+        "app.schemas.user.User",
+        "app.schemas.user.Token",
+        "app.schemas.user.TokenPayload",
+        "app.schemas.user.UserCreate",
+        "app.services.auth.auth_service",
+        "app.models.user.User",
+        "app.models.user.OAuthProvider",
+        "app.core.security.get_password_hash"
+      ],
+      "lines": 106
+    },
+    "mobile_upload": {
+      "content": "[75 lines of code]",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "fastapi.APIRouter",
+        "fastapi.Depends",
+        "fastapi.HTTPException",
+        "fastapi.UploadFile",
+        "fastapi.File",
+        "fastapi.Form",
+        "sqlalchemy.orm.Session",
+        "typing.Optional",
+        "app.core.constants.MOBILE_VIDEO_FORMATS",
+        "app.core.constants.MOBILE_MAX_FILE_SIZE",
+        "app.core.constants.MOBILE_MAX_DURATION"
+      ],
+      "lines": 75
+    },
+    "payments": {
+      "content": "[1 lines of code]",
+      "classes": [],
+      "functions": [],
+      "imports": [],
+      "lines": 1
+    },
+    "users": {
+      "content": "[40 lines of code]",
+      "classes": [],
+      "functions": [
+        "read_user_me",
+        "read_user",
+        "read_users"
+      ],
+      "imports": [
+        "fastapi.APIRouter",
+        "fastapi.Depends",
+        "fastapi.HTTPException",
+        "fastapi.status",
+        "sqlalchemy.orm.Session",
+        "typing.List",
+        "typing.Any",
+        "app.api.dependencies.get_db",
+        "app.api.dependencies.get_current_user",
+        "app.api.dependencies.get_current_active_superuser",
+        "app.models.user.User",
+        "app.schemas.user.User",
+        "app.schemas.user.UserCreate"
+      ],
+      "lines": 40
+    },
+    "ai_enhancement": {
+      "content": "[335 lines of code]",
+      "classes": [
+        "VideoGenerationRequest",
+        "VideoEnhancementRequest",
+        "QualityEnhancementRequest"
+      ],
+      "functions": [],
+      "imports": [
+        "fastapi.APIRouter",
+        "fastapi.Depends",
+        "fastapi.HTTPException",
+        "fastapi.BackgroundTasks",
+        "fastapi.UploadFile",
+        "fastapi.File",
+        "sqlalchemy.orm.Session",
+        "typing.Dict",
+        "typing.Any",
+        "typing.Optional",
+        "typing.List",
+        "pydantic.BaseModel",
+        "app.services.ai_service.ai_service",
+        "app.core.ai_config.VEO_PROMPT_TEMPLATES",
+        "app.core.ai_config.VEO_BACKGROUND_SETTINGS",
+        "app.core.constants.AI_BACKGROUNDS",
+        "os",
+        "uuid"
+      ],
+      "lines": 335
+    },
+    "videos": {
+      "content": "[379 lines of code]",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "fastapi.APIRouter",
+        "fastapi.Depends",
+        "fastapi.HTTPException",
+        "fastapi.status",
+        "fastapi.BackgroundTasks",
+        "sqlalchemy.orm.Session",
+        "typing.List",
+        "typing.Optional",
+        "typing.Dict",
+        "typing.Any",
+        "uuid.UUID",
+        "stripe",
+        "datetime.datetime",
+        "app.api.dependencies.get_db",
+        "app.api.dependencies.get_current_user",
+        "app.models.user.User",
+        "app.models.payment.Payment",
+        "app.models.payment.PaymentStatus",
+        "app.schemas.payment.PaymentIntentCreate",
+        "app.schemas.payment.PaymentIntentResponse",
+        "app.schemas.payment.PaymentConfirm",
+        "app.schemas.payment.PaymentResponse",
+        "app.schemas.payment.PaymentListResponse",
+        "app.services.payment.PaymentService",
+        "app.core.config.settings"
+      ],
+      "lines": 379
+    }
+  },
+  "services": {
+    "auth": {
+      "content": "[111 lines of code]",
+      "classes": [
+        "AuthService"
+      ],
+      "functions": [
+        "authenticate_user",
+        "create_tokens"
+      ],
+      "imports": [
+        "typing.Optional",
+        "typing.Dict",
+        "typing.Any",
+        "httpx",
+        "sqlalchemy.orm.Session",
+        "fastapi.HTTPException",
+        "fastapi.status",
+        "datetime.timedelta",
+        "app.core.config.settings",
+        "app.core.security.create_access_token",
+        "app.core.security.create_refresh_token",
+        "app.core.security.get_password_hash",
+        "app.core.security.verify_password",
+        "app.models.user.User",
+        "app.models.user.OAuthProvider",
+        "app.schemas.user.UserCreate",
+        "app.schemas.user.UserOAuthCreate"
+      ],
+      "lines": 111
+    },
+    "ai_service": {
+      "content": "[315 lines of code]",
+      "classes": [
+        "AIEnhancementService"
+      ],
+      "functions": [
+        "__init__",
+        "_map_background_type"
+      ],
+      "imports": [
+        "asyncio",
+        "logging",
+        "typing.Optional",
+        "typing.Dict",
+        "typing.Any",
+        "typing.List",
+        "datetime.datetime",
+        "datetime.timedelta",
+        "app.core.ai_config.ai_settings",
+        "app.core.ai_config.VEO_PROMPT_TEMPLATES",
+        "app.core.ai_config.VEO_BACKGROUND_SETTINGS",
+        "app.utils.ai_client.veo_client",
+        "app.core.constants.AI_BACKGROUNDS",
+        "app.core.constants.ENHANCEMENT_STATUS"
+      ],
+      "lines": 315
+    },
+    "storage": {
+      "content": "[452 lines of code]",
+      "classes": [
+        "StorageService"
+      ],
+      "functions": [
+        "__init__",
+        "_init_local",
+        "_init_s3",
+        "_init_gcs",
+        "_get_file_extension",
+        "get_file_url"
+      ],
+      "imports": [
+        "os",
+        "uuid",
+        "hashlib",
+        "mimetypes",
+        "pathlib.Path",
+        "typing.Optional",
+        "typing.Dict",
+        "typing.Any",
+        "typing.BinaryIO",
+        "datetime.datetime",
+        "datetime.timedelta",
+        "boto3",
+        "botocore.exceptions.ClientError",
+        "google.cloud.storage",
+        "fastapi.UploadFile",
+        "fastapi.HTTPException",
+        "ffmpeg",
+        "logging",
+        "app.core.config.settings"
+      ],
+      "lines": 452
+    },
+    "background_enhancer": {
+      "content": "[1 lines of code]",
+      "classes": [],
+      "functions": [],
+      "imports": [],
+      "lines": 1
+    },
+    "video": {
+      "content": "[1 lines of code]",
+      "classes": [],
+      "functions": [],
+      "imports": [],
+      "lines": 1
+    },
+    "payment": {
+      "content": "[1 lines of code]",
+      "classes": [],
+      "functions": [],
+      "imports": [],
+      "lines": 1
+    },
+    "mobile_optimizer": {
+      "content": "[63 lines of code]",
+      "classes": [
+        "MobileOptimizerService"
+      ],
+      "functions": [
+        "__init__"
+      ],
+      "imports": [
+        "os",
+        "tempfile",
+        "typing.Dict",
+        "typing.Any",
+        "typing.Optional",
+        "fastapi.UploadFile",
+        "sqlalchemy.orm.Session"
+      ],
+      "lines": 63
+    }
+  },
+  "schemas": {
+    "mobile_upload": {
+      "content": "[1 lines of code]",
+      "classes": [],
+      "functions": [],
+      "imports": [],
+      "lines": 1
+    },
+    "user": {
+      "content": "[46 lines of code]",
+      "classes": [
+        "UserBase",
+        "UserCreate",
+        "UserOAuthCreate",
+        "User",
+        "Token",
+        "TokenPayload",
+        "Config"
+      ],
+      "functions": [],
+      "imports": [
+        "pydantic.BaseModel",
+        "pydantic.EmailStr",
+        "pydantic.validator",
+        "typing.Optional",
+        "datetime.datetime",
+        "app.models.user.OAuthProvider"
+      ],
+      "lines": 46
+    },
+    "video": {
+      "content": "[632 lines of code]",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "fastapi.APIRouter",
+        "fastapi.Depends",
+        "fastapi.HTTPException",
+        "fastapi.UploadFile",
+        "fastapi.File",
+        "fastapi.BackgroundTasks",
+        "fastapi.Query",
+        "sqlalchemy.orm.Session",
+        "typing.List",
+        "typing.Optional",
+        "typing.Dict",
+        "typing.Any",
+        "datetime.datetime",
+        "datetime.timedelta",
+        "uuid",
+        "logging",
+        "app.api.dependencies.get_db",
+        "app.api.dependencies.get_current_user",
+        "app.models.user.User",
+        "app.models.video.Video",
+        "app.schemas.video.VideoCreate",
+        "app.schemas.video.VideoUpdate",
+        "app.schemas.video.VideoResponse",
+        "app.schemas.video.VideoListResponse",
+        "app.schemas.video.ShareLinkCreate",
+        "app.services.storage.storage_service",
+        "app.services.ai_service.ai_service",
+        "app.core.config.settings"
+      ],
+      "lines": 632
+    },
+    "payment": {
+      "content": "[1 lines of code]",
+      "classes": [],
+      "functions": [],
+      "imports": [],
+      "lines": 1
+    },
+    "enhancement": {
+      "content": "[51 lines of code]",
+      "classes": [
+        "EnhancementRequest",
+        "EnhancementJob",
+        "EnhancementStatus",
+        "BackgroundOption",
+        "BackgroundsResponse",
+        "Config"
+      ],
+      "functions": [],
+      "imports": [
+        "pydantic.BaseModel",
+        "pydantic.Field",
+        "typing.Optional",
+        "typing.Dict",
+        "typing.Any",
+        "datetime.datetime"
+      ],
+      "lines": 51
+    }
+  },
+  "dependencies": [
+    "fastapi>=0.95.0,<0.96.0",
+    "uvicorn>=0.21.1,<0.22.0",
+    "sqlalchemy>=2.0.9,<2.1.0",
+    "psycopg2-binary>=2.9.6,<2.10.0",
+    "alembic>=1.10.3,<1.11.0",
+    "pydantic>=1.10.7,<2.0.0",
+    "python-jose>=3.3.0,<3.4.0",
+    "passlib>=1.7.4,<1.8.0",
+    "python-multipart>=0.0.6,<0.1.0",
+    "httpx>=0.24.0,<0.25.0",
+    "stripe>=5.4.0,<5.5.0",
+    "boto3>=1.26.131,<1.27.0",
+    "python-dotenv>=1.0.0,<1.1.0",
+    "bcrypt>=4.0.1,<4.1.0",
+    "email-validator>=2.0.0,<2.1.0"
+  ],
+  "configuration": {
+    "config": {
+      "content": "[54 lines of code]",
+      "classes": [
+        "Settings",
+        "Config"
+      ],
+      "functions": [
+        "assemble_cors_origins"
+      ],
+      "imports": [
+        "pydantic.BaseSettings",
+        "pydantic.PostgresDsn",
+        "pydantic.validator",
+        "typing.List",
+        "typing.Optional",
+        "typing.Union",
+        "typing.Dict",
+        "typing.Any",
+        "os",
+        "dotenv.load_dotenv"
+      ],
+      "lines": 54
+    },
+    "events": {
+      "content": "[1 lines of code]",
+      "classes": [],
+      "functions": [],
+      "imports": [],
+      "lines": 1
+    },
+    "security": {
+      "content": "[29 lines of code]",
+      "classes": [],
+      "functions": [
+        "create_access_token",
+        "create_refresh_token",
+        "verify_password",
+        "get_password_hash"
+      ],
+      "imports": [
+        "datetime.datetime",
+        "datetime.timedelta",
+        "typing.Any",
+        "typing.Union",
+        "typing.Optional",
+        "jose.jwt",
+        "passlib.context.CryptContext",
+        "app.core.config.settings"
+      ],
+      "lines": 29
+    },
+    "constants": {
+      "content": "[60 lines of code]",
+      "classes": [],
+      "functions": [],
+      "imports": [],
+      "lines": 60
+    },
+    "ai_config": {
+      "content": "[109 lines of code]",
+      "classes": [
+        "AISettings"
+      ],
+      "functions": [
+        "__init__"
+      ],
+      "imports": [
+        "os",
+        "typing.Dict",
+        "typing.Any"
+      ],
+      "lines": 109
+    }
+  },
+  "database_tables": [],
+  "main_application": {
+    "content": "# Here's your updated main.py file with the new AI routes added:\n\nfrom fastapi import FastAPI\nfrom fastapi.middleware.cors import CORSMiddleware\nfrom fastapi.responses import JSONResponse, PlainTextResponse\nfrom fastapi.routing import APIRoute\nfrom app.api.routes import auth, users, ai_enhancement, mobile_upload\nfrom app.core.config import settings\nfrom app.api.routes.ai_enhancement import router as ai_router\n\napp = FastAPI(\n    title=settings.PROJECT_NAME,\n    openapi_url=f\"{settings.API_V1_STR}/openapi.json\",\n)\n\n# Set all CORS enabled origins\nif settings.BACKEND_CORS_ORIGINS:\n    app.add_middleware(\n        CORSMiddleware,\n        allow_origins=[str(origin) for origin in settings.BACKEND_CORS_ORIGINS],\n        allow_credentials=True,\n        allow_methods=[\"*\"],\n        allow_headers=[\"*\"],\n    )\n\n# Include routers\napp.include_router(auth.router, prefix=f\"{settings.API_V1_STR}/auth\", tags=[\"auth\"])\napp.include_router(users.router, prefix=f\"{settings.API_V1_STR}/users\", tags=[\"users\"])\n\n\n# \u2b50 ADD THESE TWO NEW ROUTES:\napp.include_router(\n    ai_enhancement.router, prefix=f\"{settings.API_V1_STR}/ai\", tags=[\"ai_enhancement\"]\n)\napp.include_router(\n    mobile_upload.router, prefix=f\"{settings.API_V1_STR}/mobile\", tags=[\"mobile_upload\"]\n)\napp.include_router(ai_router, prefix=\"/api/v1/ai\", tags=[\"ai\"])\n\n\n@app.get(\"/\")\nasync def root():\n    return {\"message\": \"Welcome to MyTenSecondStory API\"}\n\n\n@app.get(\"/health\")\nasync def health_check():\n    return JSONResponse(content={\"status\": \"ok\"})\n\n\n@app.get(\"/routes-simple\", response_class=PlainTextResponse)\nasync def get_routes_simple():\n    \"\"\"\n    Returns a concise list of all routes with their paths and methods.\n    \"\"\"\n    routes = []\n    for route in app.routes:\n        if isinstance(route, APIRoute):\n            methods = \", \".join(route.methods)\n            routes.append(f\"{methods}: {route.path}\")\n    return \"\\n\".join(routes)\n",
+    "classes": [],
+    "functions": [],
+    "imports": [
+      "fastapi.FastAPI",
+      "fastapi.middleware.cors.CORSMiddleware",
+      "fastapi.responses.JSONResponse",
+      "fastapi.responses.PlainTextResponse",
+      "fastapi.routing.APIRoute",
+      "app.api.routes.auth",
+      "app.api.routes.users",
+      "app.api.routes.ai_enhancement",
+      "app.api.routes.mobile_upload",
+      "app.core.config.settings",
+      "app.api.routes.ai_enhancement.router"
+    ],
+    "lines": 62
+  }
+}

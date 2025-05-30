@@ -1,3 +1,9 @@
+import logging
+
+# Add this line after your imports to create the logger
+logger = logging.getLogger(__name__)
+
+
 """
 AI Enhancement API routes with Google Veo 3 integration
 """
@@ -332,3 +338,124 @@ async def enhance_video_legacy(
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/test-background-removal")
+async def test_background_removal(
+    file: UploadFile = File(...),
+    # current_user: User = Depends(get_current_user),  # Comment out for testing
+    # db: Session = Depends(get_db)  # Comment out for testing
+):
+    """
+    Test endpoint for background removal
+    Upload a video and get back the processed version
+    """
+
+    # Import the background removal service
+    from app.services.background_enhancer import background_removal_service
+    import tempfile
+    import os
+
+    try:
+        # Validate file
+        if not file.filename.lower().endswith((".mp4", ".mov", ".avi")):
+            raise HTTPException(
+                status_code=400, detail="Only MP4, MOV, and AVI files are supported"
+            )
+
+        # Save uploaded file temporarily
+        temp_input = tempfile.mktemp(suffix=f"_{file.filename}")
+        with open(temp_input, "wb") as temp_file:
+            content = await file.read()
+            temp_file.write(content)
+
+        # Get video info
+        video_info = background_removal_service.get_video_info(temp_input)
+
+        # Process video
+        processed_video_path = (
+            await background_removal_service.remove_background_from_video(temp_input)
+        )
+
+        # For testing, you could return the file directly or save to your storage service
+        # Here we'll return info about the processing
+
+        return {
+            "status": "success",
+            "message": "Background removed successfully",
+            "original_video_info": video_info,
+            "processed_video_path": processed_video_path,
+            "original_size": len(content),
+            "processing_time": "calculated_in_actual_implementation",
+        }
+
+    except Exception as e:
+        logger.error(f"Background removal test failed: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Processing failed: {str(e)}")
+
+    finally:
+        # Cleanup temp input file
+        try:
+            os.remove(temp_input)
+        except:
+            pass
+
+
+@router.post("/full-pipeline-test")
+async def test_full_pipeline(
+    file: UploadFile = File(...),
+    background_prompt: str = "modern office with city view",
+    background_style: str = "professional",
+):
+    """
+    Test the full pipeline: remove background + add AI background
+    """
+
+    from app.services.background_enhancer import background_removal_service
+    from app.services.ai_service import ai_service
+    import tempfile
+    import os
+
+    try:
+        # Step 1: Save uploaded video
+        temp_input = tempfile.mktemp(suffix=f"_{file.filename}")
+        with open(temp_input, "wb") as temp_file:
+            content = await file.read()
+            temp_file.write(content)
+
+        # Step 2: Remove background
+        video_no_bg = await background_removal_service.remove_background_from_video(
+            temp_input
+        )
+
+        # Step 3: Generate AI background (you'll need to implement this part)
+        # For now, we'll simulate this step
+        ai_background_url = await ai_service.generate_background_image(
+            prompt=background_prompt, style=background_style, resolution="1920x1080"
+        )
+
+        # Step 4: Composite video with new background (implement this next)
+        # final_video = await composite_video_with_background(video_no_bg, ai_background_url)
+
+        return {
+            "status": "success",
+            "steps_completed": [
+                "video_uploaded",
+                "background_removed",
+                "ai_background_generated",
+            ],
+            "video_no_bg_path": video_no_bg,
+            "ai_background_url": ai_background_url,
+            "next_step": "composite_final_video",
+        }
+
+    except Exception as e:
+        logger.error(f"Full pipeline test failed: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Pipeline failed: {str(e)}")
+
+    finally:
+        # Cleanup
+        try:
+            os.remove(temp_input)
+        except:
+            pass

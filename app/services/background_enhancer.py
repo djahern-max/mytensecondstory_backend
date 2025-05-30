@@ -10,6 +10,7 @@ import tempfile
 import logging
 from pathlib import Path
 import asyncio
+from datetime import datetime
 
 # Import rembg with error handling
 try:
@@ -36,6 +37,11 @@ class BackgroundRemovalService:
     """Service for removing backgrounds from videos using AI"""
 
     def __init__(self):
+        # Use project root directory for output instead of temp
+        self.output_dir = Path.cwd() / "processed_videos"
+        self.output_dir.mkdir(exist_ok=True)
+
+        # Still use temp for intermediate processing
         self.temp_dir = Path(tempfile.gettempdir()) / "background_removal"
         self.temp_dir.mkdir(exist_ok=True)
 
@@ -69,7 +75,10 @@ class BackgroundRemovalService:
         try:
             if not output_path:
                 input_name = Path(input_video_path).stem
-                output_path = str(self.temp_dir / f"{input_name}_no_bg.mp4")
+                timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+                output_path = str(
+                    self.output_dir / f"{input_name}_no_bg_{timestamp}.mp4"
+                )
 
             # Check if rembg is available
             if not REMBG_AVAILABLE or not self.session:
@@ -202,6 +211,9 @@ class BackgroundRemovalService:
     ) -> str:
         """Simulate background removal by copying the original file"""
         logger.info("🔄 Simulating background removal...")
+
+        # Ensure output directory exists
+        Path(output_path).parent.mkdir(parents=True, exist_ok=True)
 
         # Simple copy for simulation
         import shutil

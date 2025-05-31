@@ -5,6 +5,7 @@ from fastapi.routing import APIRoute
 from app.api.routes import auth, users
 from app.api.routes.videos import router as videos_router
 from app.core.config import settings
+from app.api.routes.replicate_videos import router as replicate_router
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -24,15 +25,23 @@ if settings.BACKEND_CORS_ORIGINS:
 # Include routers
 app.include_router(auth.router, prefix=f"{settings.API_V1_STR}/auth", tags=["auth"])
 app.include_router(users.router, prefix=f"{settings.API_V1_STR}/users", tags=["users"])
-app.include_router(videos_router, prefix=f"{settings.API_V1_STR}/videos", tags=["videos"])
+app.include_router(
+    videos_router, prefix=f"{settings.API_V1_STR}/videos", tags=["videos"]
+)
+app.include_router(
+    replicate_router, prefix=f"{settings.API_V1_STR}/replicate", tags=["replicate"]
+)
+
 
 @app.get("/")
 async def root():
     return {"message": "Welcome to MyTenSecondStory API"}
 
+
 @app.get("/health")
 async def health_check():
     return JSONResponse(content={"status": "ok"})
+
 
 @app.get("/routes-simple", response_class=PlainTextResponse)
 async def get_routes_simple():

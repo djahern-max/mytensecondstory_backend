@@ -49,7 +49,9 @@ class BackgroundRemovalService:
         if REMBG_AVAILABLE:
             try:
                 self.session = new_session("u2net_human_seg")
-                logger.info("✅ Background removal service initialized with rembg")
+                logger.info(
+                    "✅ Background removal service initialized with rembg (optimized for humans)"
+                )
             except Exception as e:
                 logger.warning(f"⚠️ Could not initialize rembg session: {e}")
                 self.session = None
@@ -108,7 +110,9 @@ class BackgroundRemovalService:
             processed_frames = []
             frame_index = 0
 
-            # Process each frame
+            # Process frames with progress updates
+            logger.info(f"🎬 Starting frame-by-frame processing...")
+
             while True:
                 ret, frame = cap.read()
                 if not ret:
@@ -129,10 +133,17 @@ class BackgroundRemovalService:
 
                 frame_index += 1
 
-                # Progress logging
-                if frame_index % 30 == 0:  # Log every 30 frames
+                # Progress logging every 30 frames (1 second at 30fps)
+                if frame_index % 30 == 0:
                     progress = (frame_index / frame_count) * 100
-                    logger.info(f"Processing progress: {progress:.1f}%")
+                    logger.info(
+                        f"🔄 Processing progress: {progress:.1f}% ({frame_index}/{frame_count} frames)"
+                    )
+
+                # Quick progress for shorter videos
+                elif frame_count < 100 and frame_index % 10 == 0:
+                    progress = (frame_index / frame_count) * 100
+                    logger.info(f"🔄 Processing progress: {progress:.1f}%")
 
             cap.release()
 

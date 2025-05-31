@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-05-30T08:56:56.082786",
+  "generated_at": "2025-05-30T20:37:16.419699",
   "application_name": "MyTenSecondStory Backend",
   "structure": {
     "name": "app",
@@ -491,7 +491,7 @@
       "lines": 40
     },
     "ai_enhancement": {
-      "content": "[335 lines of code]",
+      "content": "[462 lines of code]",
       "classes": [
         "VideoGenerationRequest",
         "VideoEnhancementRequest",
@@ -499,6 +499,7 @@
       ],
       "functions": [],
       "imports": [
+        "logging",
         "fastapi.APIRouter",
         "fastapi.Depends",
         "fastapi.HTTPException",
@@ -515,10 +516,17 @@
         "app.core.ai_config.VEO_PROMPT_TEMPLATES",
         "app.core.ai_config.VEO_BACKGROUND_SETTINGS",
         "app.core.constants.AI_BACKGROUNDS",
+        "app.services.background_enhancer.background_removal_service",
+        "tempfile",
+        "os",
+        "app.services.background_enhancer.background_removal_service",
+        "app.services.ai_service.ai_service",
+        "tempfile",
+        "os",
         "os",
         "uuid"
       ],
-      "lines": 335
+      "lines": 462
     },
     "videos": {
       "content": "[379 lines of code]",
@@ -586,7 +594,7 @@
       "lines": 111
     },
     "ai_service": {
-      "content": "[315 lines of code]",
+      "content": "[357 lines of code]",
       "classes": [
         "AIEnhancementService"
       ],
@@ -608,9 +616,11 @@
         "app.core.ai_config.VEO_BACKGROUND_SETTINGS",
         "app.utils.ai_client.veo_client",
         "app.core.constants.AI_BACKGROUNDS",
-        "app.core.constants.ENHANCEMENT_STATUS"
+        "app.core.constants.ENHANCEMENT_STATUS",
+        "openai",
+        "os"
       ],
-      "lines": 315
+      "lines": 357
     },
     "storage": {
       "content": "[452 lines of code]",
@@ -649,11 +659,31 @@
       "lines": 452
     },
     "background_enhancer": {
-      "content": "[1 lines of code]",
-      "classes": [],
-      "functions": [],
-      "imports": [],
-      "lines": 1
+      "content": "[273 lines of code]",
+      "classes": [
+        "BackgroundRemovalService"
+      ],
+      "functions": [
+        "__init__",
+        "get_video_info"
+      ],
+      "imports": [
+        "os",
+        "cv2",
+        "numpy",
+        "typing.Optional",
+        "typing.Tuple",
+        "tempfile",
+        "logging",
+        "pathlib.Path",
+        "asyncio",
+        "datetime.datetime",
+        "rembg.remove",
+        "rembg.new_session",
+        "ffmpeg",
+        "shutil"
+      ],
+      "lines": 273
     },
     "video": {
       "content": "[1 lines of code]",

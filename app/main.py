@@ -4,12 +4,14 @@ from fastapi.responses import JSONResponse, PlainTextResponse
 from fastapi.routing import APIRoute
 from app.api.routes import auth, users
 from app.api.routes.videos import router as videos_router
-from app.core.config import settings
 from app.api.routes.replicate_videos import router as replicate_router
+from app.core.config import settings
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
     openapi_url=f"{settings.API_V1_STR}/openapi.json",
+    description="MyTenSecondStory Backend API - Create AI-enhanced 10-second video stories",
+    version="1.0.0",
 )
 
 # Set all CORS enabled origins
@@ -35,7 +37,15 @@ app.include_router(
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome to MyTenSecondStory API"}
+    return {
+        "message": "Welcome to MyTenSecondStory API",
+        "version": "1.0.0",
+        "features": [
+            "User authentication",
+            "Video upload and processing",
+            "AI background removal via Replicate",
+        ],
+    }
 
 
 @app.get("/health")
